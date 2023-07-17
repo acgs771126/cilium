@@ -390,6 +390,9 @@ jobs:
             until docker manifest inspect quay.io/${{ env.QUAY_ORGANIZATION_DEV }}/$image:${{ steps.vars.outputs.sha }} &> /dev/null; do sleep 45s; done
           done
 
+      - name: Collect Workflow Telemetry
+        uses: runforesight/workflow-telemetry-action@v1
+
       - name: Run e2e tests (${{ join(matrix.*, ', ') }})
         uses: cilium/little-vm-helper@0fcaa3fed17811fcd8b6f1b0dc1f24e5f4ff6b13 # v0.0.7
         if:  ${{ matrix.test-upgrade == 'TODO' }} # connectivity will be checked by upgrade tests

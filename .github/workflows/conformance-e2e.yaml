@@ -376,7 +376,7 @@ jobs:
           image-version: ${{ matrix.kernel }}
           host-mount: ./
           cpu: 4
-          mem: '8G'
+          mem: '12G'
           dns-resolver: '1.1.1.1'
           install-dependencies: 'true'
           cmd: |
